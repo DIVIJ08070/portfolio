@@ -10,6 +10,8 @@ import { Canvas } from '@react-three/fiber'
 export const Hero = () => {
   // Create motion values for the breathing effect
   const pulseValue = useMotionValue(0)
+  // Derive a plain number for NeonGrid intensity
+  const intensityValue = useTransform(pulseValue, (value) => value)
   const backgroundColor = useTransform(
     pulseValue,
     [0, 1],
@@ -60,7 +62,7 @@ export const Hero = () => {
         style={{ opacity: useTransform(pulseValue, [0, 1], [0.2, 0.4]) }}
       >
         <Canvas>
-          <NeonGrid intensity={pulseValue} />
+          <NeonGrid intensity={intensityValue.get()} />
         </Canvas>
       </motion.div>
       

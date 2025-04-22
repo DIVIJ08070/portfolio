@@ -1,12 +1,12 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: 'class', // This is crucial - must be 'class' not 'media'
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}'
-  ],
-  theme: {
-    extend: {},
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: ['yourdomain.com'], // Add image domains if using external images
   },
-  plugins: [],
+  experimental: {
+    serverActions: true, // Optional, if you're using server actions
+  },
 }
+
+module.exports = nextConfig
